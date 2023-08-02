@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://puw37qktu3nn"]
+
+[ext_resource type="Script" path="res://scenes/gui/game_menu/game_menu.gd" id="1_ddm0p"]
+[ext_resource type="PackedScene" uid="uid://62dqijydum14" path="res://scenes/gui/game_menu/game_menu_top/game_menu_top.tscn" id="1_gfdwa"]
+[ext_resource type="PackedScene" uid="uid://b8e1l2t20i8vs" path="res://scenes/gui/game_menu/game_menu_boosters/game_menu_boosters.tscn" id="2_oucnl"]
+
+[node name="GameMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ddm0p")
+
+[node name="GameMenu_Top" parent="." instance=ExtResource("1_gfdwa")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 446.0
+offset_top = 107.0
+offset_right = 446.0
+offset_bottom = 107.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameMenu_Busters" parent="." instance=ExtResource("2_oucnl")]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 1460.0
+offset_right = 440.0
+offset_bottom = 1600.0

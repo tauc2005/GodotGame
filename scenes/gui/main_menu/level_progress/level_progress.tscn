@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://dra2hewnv5yp1"]
+
+[ext_resource type="Texture2D" uid="uid://hajug40uabrm" path="res://assets/img/0.png" id="1_lx7mf"]
+
+[node name="LevelProgress" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -365.0
+offset_right = 365.0
+offset_bottom = 64.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="lv_1" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_2" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_3" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_4" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_5" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_6" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_7" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_8" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_9" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="lv_10" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_lx7mf")
+expand_mode = 1
+stretch_mode = 5

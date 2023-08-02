@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c77veqptp0wig"]
+
+[ext_resource type="Script" path="res://scenes/gui/main_menu/main_menu.gd" id="1_60g74"]
+[ext_resource type="PackedScene" uid="uid://cb5h6opjd0014" path="res://scenes/gui/main_menu/mainmenu_top/mainmenu_top.tscn" id="1_cmg32"]
+[ext_resource type="PackedScene" uid="uid://bk8lx8u4gjrsx" path="res://scenes/gui/main_menu/mainmenu_bottom/mainmenu_bottom.tscn" id="2_ixqos"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_60g74")
+
+[node name="MainMenu_Top" parent="." instance=ExtResource("1_cmg32")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 900.0
+offset_bottom = 190.0
+grow_horizontal = 1
+
+[node name="MainMenu_Bottom" parent="." instance=ExtResource("2_ixqos")]
+custom_minimum_size = Vector2(900, 260)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = 1340.0
+offset_right = 900.0
+offset_bottom = 1600.0
+grow_horizontal = 1

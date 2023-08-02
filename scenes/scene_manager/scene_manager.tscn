@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://md3um0rdnq04"]
+
+[ext_resource type="Script" path="res://scenes/scene_manager/scene_manager.gd" id="1_yvtrc"]
+[ext_resource type="PackedScene" uid="uid://c77veqptp0wig" path="res://scenes/gui/main_menu/main_menu.tscn" id="2_n4wtw"]
+[ext_resource type="PackedScene" uid="uid://puw37qktu3nn" path="res://scenes/gui/game_menu/game_menu.tscn" id="3_dcgya"]
+[ext_resource type="PackedScene" uid="uid://3ela27unb41k" path="res://scenes/gui/settings/settings.tscn" id="4_l7du4"]
+
+[node name="SceneManager" type="CanvasLayer"]
+script = ExtResource("1_yvtrc")
+
+[node name="GUI" type="Node" parent="."]
+
+[node name="MainMenu" parent="GUI" instance=ExtResource("2_n4wtw")]
+
+[node name="GameMenu" parent="GUI" instance=ExtResource("3_dcgya")]
+visible = false
+
+[node name="Modals" type="Node" parent="GUI"]
+
+[node name="Settings" parent="GUI/Modals" instance=ExtResource("4_l7du4")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2

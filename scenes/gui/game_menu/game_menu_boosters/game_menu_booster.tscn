@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgyukigsbh4me"]
+
+[ext_resource type="Texture2D" uid="uid://5xu4rmt1c3ut" path="res://assets/img/buster-place.png" id="1_xoq1h"]
+[ext_resource type="Texture2D" uid="uid://drr83ywnpchdu" path="res://assets/img/booster1.png" id="2_k45y5"]
+[ext_resource type="Texture2D" uid="uid://dfpf0c80626nj" path="res://assets/img/circle_light.png" id="3_gh2y1"]
+
+[node name="BoosterPlace" type="Control"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -760.0
+offset_bottom = -1460.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 2
+texture = ExtResource("1_xoq1h")
+region_rect = Rect2(0, 0, 136, 132.5)
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -49.0
+offset_right = 63.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="img" type="TextureRect" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_k45y5")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = -30
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(44, 54)
+layout_mode = 2
+texture = ExtResource("3_gh2y1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="value" type="Label" parent="CenterContainer/NinePatchRect/MarginContainer/VBoxContainer/MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 21
+text = "45"
+horizontal_alignment = 1
+vertical_alignment = 1

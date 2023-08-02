@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://62dqijydum14"]
+
+[ext_resource type="Texture2D" uid="uid://dkgmv1g1tnhww" path="res://assets/img/button-back.png" id="1_2e3ll"]
+[ext_resource type="PackedScene" uid="uid://8biqb6sqom0f" path="res://scenes/gui/elemets/settings_button/setting_button.tscn" id="1_5soyj"]
+[ext_resource type="Script" path="res://scenes/gui/game_menu/game_menu_top/game_menu_top.gd" id="1_xnyx8"]
+[ext_resource type="Texture2D" uid="uid://840b3pwhonxf" path="res://assets/img/button-back-up.png" id="2_sua2a"]
+[ext_resource type="Texture2D" uid="uid://qcyy001t5pyv" path="res://assets/img/game-menu.png" id="3_72iii"]
+[ext_resource type="PackedScene" uid="uid://dpqh8pir1qxri" path="res://scenes/gui/elemets/game_rule/game_rule.tscn" id="3_v5etu"]
+[ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="4_jjuhv"]
+
+[node name="GameMenuTop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -1405.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xnyx8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 190)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 35
+
+[node name="button_back" type="TextureButton" parent="CenterContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_2e3ll")
+texture_pressed = ExtResource("2_sua2a")
+stretch_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_72iii")
+patch_margin_left = 203
+patch_margin_top = 52
+patch_margin_right = 111
+patch_margin_bottom = 78
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="moves" type="VBoxContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="moves_label" type="Label" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer/moves"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("4_jjuhv")
+theme_override_font_sizes/font_size = 25
+text = "ХОДЫ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="moves_value" type="Label" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer/moves"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_jjuhv")
+theme_override_font_sizes/font_size = 45
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="rules" type="HBoxContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="rule_1" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer2/rules" instance=ExtResource("3_v5etu")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="rule_2" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer2/rules" instance=ExtResource("3_v5etu")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="rule_3" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer2/rules" instance=ExtResource("3_v5etu")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="SettingButton" parent="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer3" instance=ExtResource("1_5soyj")]
+layout_mode = 2
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MarginContainer/button_back" to="." method="_on_backtomain_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MarginContainer2/NinePatchRect/HBoxContainer/MarginContainer3/SettingButton" to="." method="_on_setting_button_pressed"]

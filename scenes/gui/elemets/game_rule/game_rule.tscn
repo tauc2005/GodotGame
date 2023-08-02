@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpqh8pir1qxri"]
+
+[ext_resource type="Texture2D" uid="uid://hajug40uabrm" path="res://assets/img/0.png" id="1_kens7"]
+[ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_1ggw6"]
+
+[node name="Rule" type="Control"]
+layout_mode = 3
+anchor_right = 0.167
+anchor_bottom = 0.039
+offset_right = -0.240005
+offset_bottom = -0.120003
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_kens7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_1ggw6")
+theme_override_font_sizes/font_size = 30
+text = "123"

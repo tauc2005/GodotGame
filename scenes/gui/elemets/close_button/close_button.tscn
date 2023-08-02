@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm26rejmq7n7t"]
+
+[ext_resource type="Texture2D" uid="uid://b2bwq5xbsvku1" path="res://assets/img/btn_close.png" id="1_585eo"]
+
+[node name="CloseButton" type="TextureButton"]
+texture_normal = ExtResource("1_585eo")
+stretch_mode = 5

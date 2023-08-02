@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://cb5h6opjd0014"]
+
+[ext_resource type="Script" path="res://scenes/gui/main_menu/mainmenu_top/mainmenu_top.gd" id="1_h4dqb"]
+[ext_resource type="Texture2D" uid="uid://bhr0h7vb0nm0f" path="res://assets/img/wnd_top.png" id="1_vomcy"]
+[ext_resource type="Texture2D" uid="uid://dfpf0c80626nj" path="res://assets/img/circle_light.png" id="2_tubu7"]
+[ext_resource type="Texture2D" uid="uid://ccny5armlyh2" path="res://assets/img/ava.png" id="3_fy4dh"]
+[ext_resource type="PackedScene" uid="uid://dl2c38drdr0sf" path="res://scenes/gui/main_menu/lifes_holder/lifes_holder.tscn" id="4_bscqo"]
+[ext_resource type="PackedScene" uid="uid://djbemwl1v832q" path="res://scenes/gui/main_menu/money_holder/money_holder.tscn" id="5_s13dd"]
+[ext_resource type="PackedScene" uid="uid://c1th32cqukowy" path="res://scenes/gui/elemets/shop_button/shop_button.tscn" id="6_7prwo"]
+[ext_resource type="PackedScene" uid="uid://8biqb6sqom0f" path="res://scenes/gui/elemets/settings_button/setting_button.tscn" id="7_irmi5"]
+
+[node name="MainMenuTop" type="Control"]
+custom_minimum_size = Vector2(900, 190)
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.11875
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_h4dqb")
+metadata/_edit_horizontal_guides_ = [68.0]
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_vomcy")
+patch_margin_left = 38
+patch_margin_right = 47
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0403846
+anchor_top = 0.153333
+anchor_right = 0.965385
+anchor_bottom = 1.18667
+offset_bottom = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+
+[node name="AVAContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+
+[node name="avatar_place" type="TextureRect" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/AVAContainer"]
+custom_minimum_size = Vector2(140, 140)
+layout_direction = 1
+layout_mode = 2
+texture = ExtResource("2_tubu7")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/AVAContainer/avatar_place"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="avatar" type="TextureRect" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/AVAContainer/avatar_place/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_fy4dh")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+
+[node name="LIFEContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LifeHolder" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/LIFEContainer" instance=ExtResource("4_bscqo")]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 2
+
+[node name="MONEYContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MoneyHolder" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/MONEYContainer" instance=ExtResource("5_s13dd")]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ShopContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShopButton" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/ShopContainer" instance=ExtResource("6_7prwo")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="SettingsContainer2" type="MarginContainer" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+
+[node name="SettingButton" parent="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/SettingsContainer2" instance=ExtResource("7_irmi5")]
+layout_mode = 2
+flip_h = true
+flip_v = true
+
+[connection signal="pressed" from="MarginContainer/NinePatchRect/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/SettingsContainer2/SettingButton" to="." method="_on_setting_button_pressed"]

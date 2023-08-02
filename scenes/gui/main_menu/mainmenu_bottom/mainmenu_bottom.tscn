@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk8lx8u4gjrsx"]
+
+[ext_resource type="Texture2D" uid="uid://b8od0k4pg72p3" path="res://assets/img/btn_green.png" id="1_nbkx5"]
+[ext_resource type="Script" path="res://scenes/gui/main_menu/mainmenu_bottom/mainmenu_bottom.gd" id="1_y8t5y"]
+[ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_gv1wv"]
+
+[node name="MainMenuBottom" type="Control"]
+custom_minimum_size = Vector2(900, 280)
+layout_mode = 3
+anchor_top = 0.827
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 48.7999
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_y8t5y")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 280)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBox"]
+layout_mode = 2
+
+[node name="btn_start" type="TextureButton" parent="CenterContainer/VBox/MarginContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+texture_normal = ExtResource("1_nbkx5")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBox/MarginContainer/btn_start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label" type="Label" parent="CenterContainer/VBox/MarginContainer/btn_start/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_gv1wv")
+theme_override_font_sizes/font_size = 40
+text = "СТАРТ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="empty" type="Control" parent="CenterContainer/VBox"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="CenterContainer/VBox/MarginContainer/btn_start" to="." method="_on_startgame_pressed"]

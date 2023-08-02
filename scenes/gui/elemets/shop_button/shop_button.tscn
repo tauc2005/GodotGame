@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1th32cqukowy"]
+
+[ext_resource type="Texture2D" uid="uid://cf5v33bo0rgvg" path="res://assets/img/circle_green.png" id="1_2gjdt"]
+[ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_8t1m3"]
+
+[node name="ShopButton" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+
+[node name="TextureButton" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_2gjdt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="label" type="Label" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -14.5
+offset_right = 8.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_8t1m3")
+theme_override_font_sizes/font_size = 50
+text = "+"
+horizontal_alignment = 2
+vertical_alignment = 1
