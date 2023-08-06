@@ -23,6 +23,7 @@ offset_left = 2.0
 offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 1
 color = Color(0, 0, 0, 0.584314)
 
 [node name="Control" type="Control" parent="."]
@@ -120,4 +121,5 @@ layout_mode = 2
 texture_normal = ExtResource("2_0rvgu")
 stretch_mode = 5
 
+[connection signal="focus_entered" from="bg" to="." method="_on_bg_focus_entered"]
 [connection signal="pressed" from="Control/BtnClose/btn_close" to="." method="_on_window_closed"]

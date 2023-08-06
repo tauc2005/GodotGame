@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://skuw3ky0wf6c"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/wall/wall.gd" id="1_medow"]
+
+[node name="wall" type="Polygon2D"]
+script = ExtResource("1_medow")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]

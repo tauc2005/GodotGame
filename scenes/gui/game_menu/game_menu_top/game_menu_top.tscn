@@ -32,11 +32,12 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 35
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 25
 
 [node name="button_back" type="TextureButton" parent="CenterContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 texture_normal = ExtResource("1_2e3ll")
 texture_pressed = ExtResource("2_sua2a")

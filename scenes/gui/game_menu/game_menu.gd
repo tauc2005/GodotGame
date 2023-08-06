@@ -1,6 +1,6 @@
 extends Control
 
-signal  on_show_gui_window(name)
+signal  on_show_gui_window(wnd_name)
 
 @onready var ui_top = get_node("GameMenu_Top")
 #@onready var ui_bottom = get_node("GameMenu_Bottom")
@@ -13,6 +13,6 @@ func _ready():
 
 	pass
 	
-func _on_show_gui_window(name):
-	emit_signal("on_show_gui_window",name)	
+func _on_show_gui_window(wnd_name):
+	emit_signal("on_show_gui_window",wnd_name)	
 	pass
