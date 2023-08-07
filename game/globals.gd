@@ -98,7 +98,7 @@ const BallItem  = preload("res://scenes/game_objects/items/ball/ball.tscn")
 #const IceItem   = preload("res://scenes/game_objects/ice/item.tscn")
 
 # Птички
-#const BusterItem = preload("res://scenes/game_objects/busters/buster.tscn")
+const BusterItem = preload("res://scenes/game_objects/items/busters/buster.tscn")
 #
 #const Booster_KillerItem = preload("res://scenes/game_objects/booster/killer.tscn")
 
@@ -113,8 +113,16 @@ const BallItem  = preload("res://scenes/game_objects/items/ball/ball.tscn")
 
 enum DIRECTION {UP,DOWN,LEFT,RIGHT}
 
+
 #------------------------------------------------
 # Бустеры - усилители
+const BUSTER_BIRDS_TEXTURES = {
+	1: preload("res://assets/img/buster1.png"),
+	2: preload("res://assets/img/buster2.png"),
+	3: preload("res://assets/img/buster3.png"),
+} 
+
+
 #------------------------------------------------
 # Текстуры для усилителей
 const BOOSTER_TYPE_DATA = {

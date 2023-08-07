@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlps3p074dwx3"]
+
+[ext_resource type="Texture2D" uid="uid://cogwdhfjbu7dk" path="res://assets/img/buster1.png" id="1_2wcox"]
+[ext_resource type="Script" path="res://scenes/game_objects/items/busters/buster.gd" id="1_hni4o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_08av5"]
+radius = 58.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfdsc"]
+size = Vector2(671, 136)
+
+[node name="buster" type="RigidBody2D"]
+input_pickable = true
+mass = 3.0
+max_contacts_reported = 3
+contact_monitor = true
+script = ExtResource("1_hni4o")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_08av5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_2wcox")
+
+[node name="shape_collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qfdsc")
+disabled = true
+debug_color = Color(0.713726, 0.6, 0.701961, 0.32549)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_buster_body_shape_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

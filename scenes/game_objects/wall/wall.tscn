@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://skuw3ky0wf6c"]
+[gd_scene load_steps=3 format=3 uid="uid://skuw3ky0wf6c"]
 
+[ext_resource type="Texture2D" uid="uid://cskg3y8xurmte" path="res://assets/img/wall.png" id="1_mce8k"]
 [ext_resource type="Script" path="res://scenes/game_objects/wall/wall.gd" id="1_medow"]
 
 [node name="wall" type="Polygon2D"]
+texture_repeat = 2
+color = Color(0.572549, 0.866667, 0.67451, 0.396078)
+texture = ExtResource("1_mce8k")
 script = ExtResource("1_medow")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false

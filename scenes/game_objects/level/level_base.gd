@@ -161,11 +161,11 @@ func clear_marks():
 #------------------------------------------------
 # Добавление бустера
 #------------------------------------------------
-func add_buster(position,level):
-	var buster = Globals.BusterItem.instance();
-	buster.position =position
-	buster.connect("buster_clicked",self,"_on_buster_clicked")
-	buster.connect("make_step",self,"_on_make_step")
+func add_buster(_position,level):
+	var buster = Globals.BusterItem.instantiate();
+	buster.position =_position
+	buster.buster_clicked.connect(_on_buster_clicked)
+	buster.make_step.connect(_on_make_step)
 	buster.set_level(level)
 	add_item_node(buster)
 	if Globals.DEBAG: print ("buster adds: ",_items.get_child_count())

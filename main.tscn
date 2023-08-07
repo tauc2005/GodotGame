@@ -8,6 +8,7 @@
 script = ExtResource("1_s8mgf")
 
 [node name="BgManager" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="BgManager"]
 visible = false

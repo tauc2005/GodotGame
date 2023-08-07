@@ -8,17 +8,16 @@ radius = 30.7788
 
 [node name="ball" type="RigidBody2D"]
 input_pickable = true
-mass = 7.5
-gravity_scale = 7.5
 max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_n0nnv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.02, 1.02)
+scale = Vector2(1.13, 1.13)
 shape = SubResource("CircleShape2D_edy4k")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_yr3y6")
 
 [connection signal="input_event" from="." to="." method="_on_ball_input_event"]
