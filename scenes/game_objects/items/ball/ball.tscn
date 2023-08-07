@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://uch683a3h2b5"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/items/ball/ball.gd" id="1_n0nnv"]
+[ext_resource type="Texture2D" uid="uid://hajug40uabrm" path="res://assets/img/0.png" id="1_yr3y6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_edy4k"]
+radius = 30.7788
+
+[node name="ball" type="RigidBody2D"]
+input_pickable = true
+mass = 7.5
+gravity_scale = 7.5
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_n0nnv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.02, 1.02)
+shape = SubResource("CircleShape2D_edy4k")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_yr3y6")
+
+[connection signal="input_event" from="." to="." method="_on_ball_input_event"]
