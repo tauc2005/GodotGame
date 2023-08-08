@@ -5,6 +5,13 @@ signal on_game_start()
 
 @onready var modal = get_node("SizeBox/ModalWindow")
 
+@export var Level:int = 0 : #_set set_caption
+	get: 
+		return Level
+	set(value): 
+		Level= value
+		$SizeBox/ModalWindow.set("Caption","Уровень %d"% Level)
+
 func _ready():
 	modal.on_window_closed.connect(_on_window_closed)
 	pass
