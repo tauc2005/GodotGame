@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl2c38drdr0sf"]
+[gd_scene load_steps=5 format=3 uid="uid://dl2c38drdr0sf"]
 
 [ext_resource type="Texture2D" uid="uid://58sfdg4fg3wp" path="res://assets/img/holder_lite.png" id="1_1vaa2"]
+[ext_resource type="Script" path="res://scenes/gui/main_menu/lifes_holder/lifes_holder.gd" id="1_1xaiy"]
 [ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_26ssh"]
 [ext_resource type="Texture2D" uid="uid://cdtdsjy14tjnj" path="res://assets/img/heart.png" id="3_qc2rr"]
 
@@ -13,20 +14,17 @@ offset_right = -0.0400085
 offset_bottom = 3.2
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1xaiy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_direction = 3
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 0.5
 offset_left = -234.0
-offset_top = -40.0
-offset_bottom = 40.0
+offset_bottom = 80.0
 grow_horizontal = 0
-grow_vertical = 2
 
 [node name="Control" type="Control" parent="HBoxContainer"]
 custom_minimum_size = Vector2(150, 80)
@@ -37,11 +35,12 @@ size_flags_vertical = 4
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.193333
+anchor_left = 0.0266667
 anchor_top = 0.1625
-anchor_right = 1.26027
+anchor_right = 1.28693
 anchor_bottom = 0.85
-offset_right = -0.0400085
+offset_left = 7.0
+offset_right = 6.95999
 grow_vertical = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_1vaa2")
@@ -57,18 +56,17 @@ anchors_preset = -1
 anchor_left = 0.066
 anchor_right = 0.434
 anchor_bottom = 1.327
-offset_left = -0.559999
-offset_top = 8.0
-offset_right = 58.56
-offset_bottom = -26.985
+offset_left = -4.474
+offset_top = 5.0
+offset_right = 62.974
+offset_bottom = -22.985
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 5
 
 [node name="LabelTime" type="Label" parent="HBoxContainer/Control/NinePatchRect/MarginContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_26ssh")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 30
 text = "45м 30с"
 horizontal_alignment = 2
 vertical_alignment = 1

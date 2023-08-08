@@ -5,7 +5,7 @@
 
 [node name="wall" type="Polygon2D"]
 texture_repeat = 2
-color = Color(0.572549, 0.866667, 0.67451, 0.396078)
+antialiased = true
 texture = ExtResource("1_mce8k")
 script = ExtResource("1_medow")
 
