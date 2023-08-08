@@ -13,18 +13,22 @@ signal level_data_changed()
 #------------------------------------------------
 # Данные об уровне, полученнные с сервера для формирования уровня
 var _level_data = null
-
+#------------------------------------------------
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level.set_item_node(get_node("Level/Items"))
 	level.set_world_node(get_node("Level/World"))
+	
+	
 	pass # Replace with function body.
 
-
+#------------------------------------------------
+#------------------------------------------------
 func startGame():
 	if Globals.DEBAG: print ("=== GAME STARTET ===")
 	level.reset_level()
 	load_level()
+	Player.Lives -=1 
 	pass
 
 func exitGame():
@@ -50,4 +54,4 @@ func load_level():
 	#load_rules()
 	#load_bonus()
 	emit_signal("level_loaded")
-
+#------------------------------------------------

@@ -48,3 +48,11 @@ func _load_level_name(number:int):
 	
 	if Globals.DEBAG: print("path:" +l_name)		
 	return l_name		
+
+#------------------------------------------------
+# Загрузка пользовательских данных
+#------------------------------------------------
+func load_userdata():
+	Player.Level =2
+	Player.Lives =3
+	Player.Money = 1580

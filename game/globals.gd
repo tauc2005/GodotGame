@@ -13,7 +13,7 @@ const MONEY_FOR_MOVES = 100
 const MOVES_BY_MONEY = 5
 const MOVES_BY_ADS = 3
 
-const TIME_TO_NEXT_LIFE = 70
+const TIME_TO_NEXT_LIFE = 10 # В секундах
 #------------------------------------------------
 #------------------------------------------------
 # Адрес к бекенду

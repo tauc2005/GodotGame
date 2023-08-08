@@ -17,18 +17,19 @@ func _ready():
 	#Связываем сигналы
 	ui_mainMenu.on_show_gui_window.connect(show_window)
 	ui_gameMenu.on_show_gui_window.connect(show_window)
-	
+
 	#закрытие модальных окон
 	wnd_settings.on_window_closed.connect(hide_window.bind("settings"))
 	wnd_before_game.on_window_closed.connect(hide_window.bind("before_game"))
 	
 	# Запуск игры
 	wnd_before_game.on_game_start.connect(_on_game_start)
+	
 	pass # Replace with function body.
 
 
 #------------------------------------------------
-# Навигация между окнами
+## Навигация между окнами
 #------------------------------------------------
 func show_window(wnd_name:String):
 	print ("(SceneManager)   -> show_window("+wnd_name+")")
@@ -69,3 +70,13 @@ func _on_game_start():
 
 func _on_game_ended():
 	emit_signal("on_game_end")
+#------------------------------------------------
+## Изменениие данных игрока
+func player_changed(type:String,value:int):
+	if Globals.DEBAG:print ("(SceneManager)   player_changed ->%s (%d)" % [type,value])
+	match type:
+		"Lives": ui_mainMenu.update(type,value)
+		"Money": ui_mainMenu.update(type,value)
+		"Level": wnd_before_game.Level = value
+#------------------------------------------------
+
