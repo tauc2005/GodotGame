@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://djbemwl1v832q"]
 
+[ext_resource type="Script" path="res://scenes/gui/main_menu/money_holder/money_holder.gd" id="1_2troi"]
 [ext_resource type="Texture2D" uid="uid://58sfdg4fg3wp" path="res://assets/img/holder_lite.png" id="1_km3sl"]
-[ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_tf5vf"]
 [ext_resource type="Texture2D" uid="uid://cc0tyimbe7sqm" path="res://assets/img/money.png" id="3_j533o"]
 
 [node name="MoneyHolder" type="Control"]
@@ -13,6 +13,7 @@ offset_right = -670.0
 offset_bottom = -1520.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2troi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -33,10 +34,11 @@ layout_mode = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.11875
-anchor_top = 0.125
+anchor_top = 0.175
 anchor_right = 1.306
-anchor_bottom = 0.812
-offset_right = 0.039978
+anchor_bottom = 0.862
+offset_left = 1.00003
+offset_right = 1.04001
 offset_bottom = 0.0399933
 grow_horizontal = 2
 grow_vertical = 2
@@ -66,8 +68,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_tf5vf")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "300 259"
 horizontal_alignment = 2
 vertical_alignment = 1
