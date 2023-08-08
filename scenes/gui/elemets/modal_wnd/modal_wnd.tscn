@@ -83,5 +83,4 @@ layout_mode = 2
 texture_normal = ExtResource("5_4gh8k")
 stretch_mode = 5
 
-[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="MarginContainer/BtnClose/btn_close" to="." method="_on_window_closed"]
