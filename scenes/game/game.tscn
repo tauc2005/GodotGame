@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://diu31tatsy76j"]
+[gd_scene load_steps=4 format=3 uid="uid://diu31tatsy76j"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_olc6n"]
 [ext_resource type="PackedScene" uid="uid://f1lfve4oq7yh" path="res://scenes/game_objects/level/level_item.tscn" id="2_rindn"]
+[ext_resource type="Script" path="res://game/rules.gd" id="3_dk66k"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_olc6n")
 
 [node name="Level" parent="." instance=ExtResource("2_rindn")]
+
+[node name="Rules" type="Node2D" parent="Level"]
+script = ExtResource("3_dk66k")
 
 [node name="World" type="Node2D" parent="Level"]
 

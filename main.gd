@@ -16,7 +16,12 @@ func _ready():
 	Player.on_player_data_changed.connect(GUI.player_changed)
 	
 	Loader.load_userdata()
-
+	if Loader.load_level_data(Player.Level):
+		Rules.reset_data()
+	
+	
+	Game.level_data_changed.connect(_on_level_data_changed)
+	Rules.on_level_complited.connect(_on_level_complite)
 	pass
 	
 
@@ -37,3 +42,13 @@ func _on_game_end():
 func _on_lifeTimer_finnished():
 	Player.Lives +=1 
 
+# Изменение игрового прогресса
+func _on_level_data_changed():
+	GUI.level_data_changed()
+	pass
+# Игра завершилась. Обработка только успеха
+func _on_level_complite(_result):
+	if not _result: return 
+	if Globals.DEBAG: print ("(main) -> _on_level_complite %s "% _result) 
+	print ("----BONUS---")
+	Player.Lives +=1 

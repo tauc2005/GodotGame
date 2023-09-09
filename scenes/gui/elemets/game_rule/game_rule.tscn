@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpqh8pir1qxri"]
+[gd_scene load_steps=4 format=3 uid="uid://dpqh8pir1qxri"]
 
+[ext_resource type="Script" path="res://scenes/gui/elemets/game_rule/game_rule.gd" id="1_dpjqi"]
 [ext_resource type="Texture2D" uid="uid://hajug40uabrm" path="res://assets/img/0.png" id="1_kens7"]
 [ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_1ggw6"]
 
 [node name="Rule" type="Control"]
+custom_minimum_size = Vector2(150, 64)
 layout_mode = 3
 anchor_right = 0.167
 anchor_bottom = 0.039
@@ -11,6 +13,7 @@ offset_right = -0.240005
 offset_bottom = -0.120003
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dpjqi")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -23,7 +26,7 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
+[node name="img" type="TextureRect" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -31,7 +34,7 @@ texture = ExtResource("1_kens7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="value" type="Label" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 3

@@ -9,12 +9,16 @@ signal  on_show_gui_window(wnd_name)
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	ui_bottom.on_startgame_pressed.connect(_on_show_gui_window.bind("before_game"))
+	ui_bottom.on_startgame_pressed.connect(_before_game_start)
 	ui_top.on_show_settings_pressed.connect(_on_show_gui_window.bind("settings"))	
+
+
 	
 func _on_show_gui_window(wnd_name):
 	emit_signal("on_show_gui_window",wnd_name)	
-	
+
+func _before_game_start():
+	_on_show_gui_window("before_game")
 	
 func update(type:String,value:int):
 	match type:

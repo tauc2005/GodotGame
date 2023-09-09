@@ -3,20 +3,27 @@ class_name ModalWindow
 
 signal on_window_closed()
 
+@onready var GUI_caption = get_node("MarginContainer/NameWnd/Box/CaptionLabel")
+@onready var GUI_btn_close = get_node("MarginContainer/BtnClose")
+
 @export var Caption:String = "Заголовок" : #_set set_caption
 	get: 
 		return Caption
 	set(value): 
 		Caption= value
-		$MarginContainer/NameWnd/Box/CaptionLabel.set("text",Caption)
+		if not GUI_caption: return
+		GUI_caption.set("text",Caption)
 		
 @export var ShowExitButton:bool = true:
 	get: 
-		return $MarginContainer/BtnClose.visible
+		if not GUI_btn_close: return false 
+		return GUI_btn_close.get("visible")
 	set(value):
-		$MarginContainer/BtnClose.visible = value
+		GUI_btn_close.set("visible",value)
 
 @export var ShowBackGround:bool = true
+
+
 
 func _on_window_closed():
 	print ("(settings) _on_window_closed ")

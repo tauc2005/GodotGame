@@ -19,6 +19,6 @@ func set_money(value:int ):
 	MoneyHolder.Money = value
 	pass
 #------------------------------------------------
-func _process(delta):
+func _process(_delta):
 	#if (delta >=1):
 	LifeHolder.TimerLife = Player.get_timer_text()
