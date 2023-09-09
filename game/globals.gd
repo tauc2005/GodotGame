@@ -12,8 +12,11 @@ const MONEY_FOR_MOVES = 100
 # Сколько ходов дается при покупке за деньги и рекламу
 const MOVES_BY_MONEY = 5
 const MOVES_BY_ADS = 3
-
-const TIME_TO_NEXT_LIFE = 10 # В секундах
+#------------------------------------------------
+# Игровые таймеры (в секундах)
+const TIME_TO_NEXT_LIFE = 10 
+const TIME_TO_CANBUY_MOVES_BY_MONEY = 10
+const TIME_TO_CANBUY_MOVES_BY_ADS  = 10
 #------------------------------------------------
 #------------------------------------------------
 # Адрес к бекенду
@@ -56,14 +59,16 @@ func get_group (type):
 # Правила победы
 #------------------------------------------------	
 
-enum RULE_TYPE  {BALL1,BALL2,BALL3,EGG,STONE,ICE} 
+enum RULE_TYPE  {NONE,BALL1,BALL2,BALL3,BALL4,EGG,STONE,ICE} 
 const RuleItem= preload("res://game/ruleItem.gd")
 
 # Текстуры для правил победы
 const RULE_TYPE_IMG = {
+	RULE_TYPE.NONE: "",
 	RULE_TYPE.BALL1: preload("res://assets/img/0.png"),
 	RULE_TYPE.BALL2: preload("res://assets/img/0.png"),
 	RULE_TYPE.BALL3: preload("res://assets/img/0.png"),
+	RULE_TYPE.BALL4: preload("res://assets/img/0.png"),
 	RULE_TYPE.EGG:  preload("res://assets/img/egg.png"),
 	RULE_TYPE.ICE:  preload("res://icon.svg"),
 }
@@ -71,9 +76,11 @@ const RULE_TYPE_IMG = {
 func get_rule_type(rule):
 	var _type = null
 	match rule:
+		0      : _type =  Globals.RULE_TYPE.NONE
 		"ball1": _type =  Globals.RULE_TYPE.BALL1
 		"ball2": _type =  Globals.RULE_TYPE.BALL2
 		"ball3": _type =  Globals.RULE_TYPE.BALL3
+		"ball4": _type =  Globals.RULE_TYPE.BALL4
 		"egg":	 _type =  Globals.RULE_TYPE.EGG
 		"stone": _type =  Globals.RULE_TYPE.STONE
 		"ice": 	 _type =  Globals.RULE_TYPE.ICE

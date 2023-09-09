@@ -10,8 +10,33 @@ signal stop_lifetimer()
 #------------------------------------------------
 func _ready():
 	if Globals.DEBAG: print ("(player) -> _ready")
-	init_timer()
+	init_timers()
 #------------------------------------------------
+
+
+func init_timers():
+	
+	#Таймер жизни 
+	_LifeTimer= Timer.new()
+	_LifeTimer.autostart= false
+	_LifeTimer.wait_time = Globals.TIME_TO_NEXT_LIFE
+	_LifeTimer.timeout.connect(_timer_timeout)
+	add_child(_LifeTimer)
+	
+	#Таймер покупки хода за реклами
+	_Timer_movesByMoney= Timer.new()
+	_Timer_movesByMoney.autostart= false
+	_Timer_movesByMoney.wait_time = Globals.TIME_TO_CANBUY_MOVES_BY_MONEY
+	_Timer_movesByMoney.timeout.connect(_on_timerMoves_byMoney_timeout)
+	add_child(_Timer_movesByMoney)
+
+	#Таймер покупки хода за деньги 
+	_Timer_movesByAds= Timer.new()
+	_Timer_movesByAds.autostart= false
+	_Timer_movesByAds.wait_time = Globals.TIME_TO_CANBUY_MOVES_BY_ADS
+	_Timer_movesByAds.timeout.connect(_on_timerMoves_byMoney_timeout)
+	add_child(_Timer_movesByAds)
+
 #------------------------------------------------
 ## Жизни
 #------------------------------------------------	
@@ -37,12 +62,6 @@ var Lives:int =0 :
 ## Таймер жизни
 var _LifeTimer: Timer =null
 
-func init_timer():
-	_LifeTimer= Timer.new()
-	add_child(_LifeTimer)
-	_LifeTimer.autostart= false
-	_LifeTimer.wait_time = Globals.TIME_TO_NEXT_LIFE
-	_LifeTimer.timeout.connect(_timer_timeout)
 
 # Таймер жизни завершился
 func _timer_timeout():
@@ -88,6 +107,7 @@ var Level:int =1 :
 
 #-----------------------------------------------
 ## Покупка жизни
+#-----------------------------------------------
 # Достаточно ли монет для покупки Жизни		
 func has_money_for_life():
 	if Globals.DEBAG: print("(player) ->  has_money_for_life")
@@ -108,21 +128,52 @@ func buy_life_by_ads():
 	#TODO 
 #------------------------------------------------
 ## Покупка ходов
+#------------------------------------------------
+var canBuyMoves_byMoney:bool = true
+var _Timer_movesByMoney :Timer
+
+func _on_timerMoves_byMoney_timeout():
+	if Globals.DEBAG: print("(player) ->  _on_timerMoves_byMoney_timeout")
+	canBuyMoves_byMoney = true
+	_Timer_movesByMoney.stop()
+	
+	
 # Достаточно ли монет для покупки Хода
 func has_money_for_moves():
 	if Globals.DEBAG: print("(player) ->  has_money_for_moves")
-	return (Money >= Globals.MONEY_FOR_MOVES)
+	return (canBuyMoves_byMoney and(Money >= Globals.MONEY_FOR_MOVES))
 	
 # Покупка Хода за деньги
 func buy_moves_by_money():
 	if Globals.DEBAG: print("(player) ->  buy_moves_by_money")
 	if (has_money_for_moves()):
 		Money -= Globals.MONEY_FOR_MOVES
+		Rules.add_moves(Globals.MOVES_BY_MONEY)
+		canBuyMoves_byMoney = false
+		_Timer_movesByMoney.start()
 		return true
-	return false
+	return false	
 
+#------------------------------------------------
+var canBuyMoves_byAds:bool = true
+var _Timer_movesByAds :Timer
+
+func _on_timerMoves_byAds_timeout():
+	if Globals.DEBAG: print("(player) ->  _on_timerMoves_byAds_timeout")
+	canBuyMoves_byAds = true
+	_Timer_movesByAds.stop()
+	
+func has_ads_for_moves():
+	return (canBuyMoves_byAds)
 # Покупка Хода за рекламу
 func buy_moves_by_ads():
 	if Globals.DEBAG: print("(player) ->  buy_moves_by_ads")
-	#TODO 	
+	if canBuyMoves_byAds:	
+		#TODO  
+		# Показ рекламы
+		Rules.add_moves(Globals.MOVES_BY_ADS)
+		canBuyMoves_byMoney = false
+		_Timer_movesByMoney.start()
+		return true
+	return false	
 #------------------------------------------------
