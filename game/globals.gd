@@ -15,8 +15,8 @@ const MOVES_BY_ADS = 3
 #------------------------------------------------
 # Игровые таймеры (в секундах)
 const TIME_TO_NEXT_LIFE = 10 
-const TIME_TO_CANBUY_MOVES_BY_MONEY = 10
-const TIME_TO_CANBUY_MOVES_BY_ADS  = 10
+const TIME_TO_CANBUY_MOVES_BY_MONEY = 100
+const TIME_TO_CANBUY_MOVES_BY_ADS  = 100
 #------------------------------------------------
 #------------------------------------------------
 # Адрес к бекенду
@@ -58,6 +58,7 @@ func get_group (type):
 #------------------------------------------------
 # Правила победы
 #------------------------------------------------	
+enum GAME_STATUS {NONE,GAME,WIN,LOSE,LOSE_HAS_MOVES,LOSE_NO_MOVES} 
 
 enum RULE_TYPE  {NONE,BALL1,BALL2,BALL3,BALL4,EGG,STONE,ICE} 
 const RuleItem= preload("res://game/ruleItem.gd")
