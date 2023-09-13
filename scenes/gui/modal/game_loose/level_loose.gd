@@ -1,7 +1,7 @@
 extends Control
 
 signal on_window_closed()
-signal on_level_complited()
+signal on_level_complited(result)
 #Возвращение в игровой процесс при покупке доп ходов
 signal on_return_to_game()
 

@@ -16,21 +16,21 @@ func _ready():
 
 func init_timers():
 	
-	#Таймер жизни 
-	_LifeTimer= Timer.new()
-	_LifeTimer.autostart= false
-	_LifeTimer.wait_time = Globals.TIME_TO_NEXT_LIFE
-	_LifeTimer.timeout.connect(_timer_timeout)
-	add_child(_LifeTimer)
+	#Таймер восстановления жизни 
+	_Timer_live_restore= Timer.new()
+	_Timer_live_restore.autostart= false
+	_Timer_live_restore.wait_time = Globals.TIME_TO_NEXT_LIFE
+	_Timer_live_restore.timeout.connect(_timer_timeout)
+	add_child(_Timer_live_restore)
 	
-	#Таймер покупки хода за реклами
+	#Таймер покупки хода за деньги
 	_Timer_movesByMoney= Timer.new()
 	_Timer_movesByMoney.autostart= false
 	_Timer_movesByMoney.wait_time = Globals.TIME_TO_CANBUY_MOVES_BY_MONEY
 	_Timer_movesByMoney.timeout.connect(_on_timerMoves_byMoney_timeout)
 	add_child(_Timer_movesByMoney)
 
-	#Таймер покупки хода за деньги 
+	#Таймер покупки хода за  реклами
 	_Timer_movesByAds= Timer.new()
 	_Timer_movesByAds.autostart= false
 	_Timer_movesByAds.wait_time = Globals.TIME_TO_CANBUY_MOVES_BY_ADS
@@ -45,11 +45,11 @@ var Lives:int =0 :
 	set(value):	
 		Lives = clamp(value,0,Globals.MAX_LIFES)
 		if (Lives >= Globals.MAX_LIFES) :# Максимальное число жизней
-			_LifeTimer.stop() 
+			_Timer_live_restore.stop() 
 			if Globals.DEBAG: print_debug ("(player) ->  Timer stopped")
 		else: # Не максимальное число жизней 
 			if Globals.DEBAG: print_debug ("(player) ->  Timer started")
-			_LifeTimer.start()			
+			_Timer_live_restore.start()			
 		if Globals.DEBAG: print_debug("(player) -> EMIT signal 'on_player_data_changed' - Lives, %s"%Lives)
 		emit_signal("on_player_data_changed","Lives",Lives)
 #------------------------------------------------		
@@ -60,7 +60,7 @@ var Lives:int =0 :
 #------------------------------------------------	
 #------------------------------------------------	
 ## Таймер жизни
-var _LifeTimer: Timer =null
+var _Timer_live_restore: Timer =null
 
 
 # Таймер жизни завершился
@@ -73,7 +73,7 @@ func get_timer_text():
 	if (Lives >= Globals.MAX_LIFES):
 		res = "Все"
 	else:		
-		var tmp = float(_LifeTimer.time_left)
+		var tmp = float(_Timer_live_restore.time_left)
 		var minute = int(tmp / 60)
 		var second = int(tmp) % 60
 		res = "%sм %sс" %  [int(minute),int(second)]	
