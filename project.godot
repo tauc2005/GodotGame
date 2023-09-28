@@ -25,6 +25,7 @@ Globals="*res://game/globals.gd"
 Loader="*res://game/loader.gd"
 Player="*res://game/player.gd"
 Rules="*res://game/rules.gd"
+Serializer="*res://game/serializer.gd"
 
 [display]
 

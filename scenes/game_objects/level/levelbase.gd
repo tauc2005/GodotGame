@@ -1,50 +1,22 @@
-extends Area2D
-class_name LevelBase 
-
+extends Node2D
+class_name LevelBase
 #------------------------------------------------
 # Реализация игровой логики
 signal make_step
 signal score_changed
-
 #------------------------------------------------
 var _blocks_to_check = null
-var _items = null 
-var _world = null
+@onready var _items= get_node("Items")
+@onready var rules = get_node("Rules")
+@onready var screens = get_node("Screens")
+@onready var map = get_node("Map")
+@onready var _world= get_node("World")
 #------------------------------------------------
-func _ready():
-	if Globals.DEBAG: print("(LevelBase) -> _ready")
-	self.remove_from_group("balls")
-#------------------------------------------------
-#------------------------------------------------
-func set_item_node(node):
-	_items = node
-	
 func add_item_node(item:Node):	
 	_items.add_child(item)
-#------------------------------------------------
-func set_world_node(node):
-	_world = node	
-#------------------------------------------------	
-# Добавление элементов на поле
 func add_world_item(item:Node):	
-	#for item in items:
 	_world.add_child(item)
 	
-#------------------------------------------------
-#------------------------------------------------
-# Перезапуск игры
-func reset_level():
-	print ("(Level_base) - reset level")
-	if (_world != null):
-		for n in _world.get_children():
-			_world.remove_child(n)
-			n.queue_free()
-	if (_items !=null):		
-		for n in _items.get_children():
-			_items.remove_child(n)
-			n.queue_free()
-	pass
-#------------------------------------------------
 # Добавление элементов на поле
 func append_items(items:Array):
 	for item in items:
@@ -55,7 +27,9 @@ func append_items(items:Array):
 			"stone":item.item_destroyed.connect(_on_stone_destroyed)
 			"ice": 	item.item_destroyed.connect(_on_stone_destroyed)
 		add_item_node(item)
-		
+func clear_items():
+	for item in _items.get_children():
+		item.free()		
 #------------------------------------------------
 #------------------------------------------------
 # Игровая логика при клике
@@ -76,7 +50,7 @@ func _on_block_clicked(block):
 		else: pass
 		
 	clear_marks() #сбрасываем метки
-#------------------------------------------------
+#------------------------------------------------		
 #------------------------------------------------
 # Логика проверки
 #------------------------------------------------
@@ -128,17 +102,8 @@ func check_score():
 		if _is_item_type(item,"ball"):
 			if (item !=null) and (item.delete==true) : 
 				count += 1
-	""""
-	var item_cnt = _items.get_child_count()
-	
-	for i in range(0,item_cnt) :
-		var item = _items.get_child(i)
-		if _is_item_type(item,"ball"):
-			if (item !=null) and (item.delete==true) : 
-				count += 1
-	
-	"""
 	return count
+	
 #удаляем отмеченные элементы
 func delete_bricks():
 	var item_cnt = _items.get_child_count()
@@ -199,9 +164,9 @@ func _on_buster_clicked(buster):
 							item.activate = true
 							buster_active = true
 					"stone": # Камешки
-							item.delete = true			
+							item.delete = true
 					"ice": # Льдинки
-							item.delete = true									
+							item.delete = true
 		cnt+=1			
 	for i in _scores:
 		var block = Globals.BallItem.instantiate()
@@ -243,6 +208,11 @@ func change_score_for_colored_go(score,block):
 					if item.has_method("change_score"):
 						item.change_score(score)	
 #------------------------------------------------
+
+#------------------------------------------------
+#------------------------------------------------
+# Игровые элементы
+#------------------------------------------------
 # Яйцо достигло земли
 func _on_egg_catched(block):
 	if Globals.DEBAG: print("(level_base) -> _on_egg_catched")
@@ -254,4 +224,11 @@ func _on_egg_catched(block):
 func _on_stone_destroyed(block):
 	if Globals.DEBAG: print("(level_base) -> _on_stone_destroyed")
 	if Globals.DEBAG: print ("	EMIT signal '_on_stone_destroyed'")
+	emit_signal("score_changed",1,block)
+
+#------------------------------------------------
+# Лед уничтожен
+func _on_ice_destroyed(block):
+	if Globals.DEBAG: print("(level_base) -> _on_ice_destroyed")
+	if Globals.DEBAG: print ("	EMIT signal '_on_ice_destroyed'")
 	emit_signal("score_changed",1,block)

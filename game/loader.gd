@@ -1,10 +1,7 @@
 extends Node
-#class_name Loader
 
 var LevelData :Dictionary:
 		get: return LevelData
-	
-
 #------------------------------------------------
 # Загрузка json уровня
 #------------------------------------------------
@@ -16,7 +13,7 @@ func get_level_data(type:String=""):
 		var data = Loader.LevelData[type]
 		return data
 	return false	
-
+"""
 #------------------------------------------------	
 func load_level_data(level_id:int):
 	var level_name = _load_level_name(level_id)
@@ -61,7 +58,7 @@ func _load_level_name(number:int):
 	if Globals.DEBAG: print("path:" +l_name)		
 	return l_name		
 #------------------------------------------------
-
+"""
 #------------------------------------------------
 ## Загрузка пользовательских данных
 #------------------------------------------------
@@ -69,3 +66,28 @@ func load_userdata():
 	Player.Level =1
 	Player.Lives =5
 	Player.Money = 1580
+
+"""
+
+func load_level(level_id: int):
+	var _path = ""
+	if Globals.DEBAG_LOCAL:
+		_path = Globals.LEVELS_PATH_LOCAL1
+	else:
+		_path = Globals.LEVELS_PATH
+	
+	var _addr = "%s/lvl%s.tscn" % [_path, level_id]
+	var current = load(_addr)
+	return current
+
+func export_scene():
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(get_tree().get_current_scene())
+	var error = ResourceSaver.save(packed_scene,"res://levels/lvl1.scn")
+	if error != OK:
+		print("ERROR: export scene error!", error)
+	else:
+		print ("<<<< export scene ok")
+
+
+"""

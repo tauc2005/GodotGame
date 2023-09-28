@@ -1,5 +1,5 @@
 extends Node
-#class_name GameRules
+class_name GameRules
 
 #-------------------------
 # Сигнал о завершении уровня
@@ -45,6 +45,8 @@ func reset_data():
 	Moves = Loader.get_level_data("moves")
 	var _items = Loader.get_level_data("rules")
 	
+	if (!_items):
+		return
 	for i in Values:
 		Values[i].set_data(Globals.RULE_TYPE.NONE,0)
 	var i=1

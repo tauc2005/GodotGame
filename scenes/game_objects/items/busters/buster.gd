@@ -112,6 +112,22 @@ func check_inside(pos)->bool:
 	return false
 #------------------------------------------------		
 
+func serialize():
+	return {
+		"type": node_type,
+		"pos" : {
+			"x": global_position.x,
+			"y": global_position.y
+			},
+		"lvl": _level	
+	}
+
+func deserialize (data:Dictionary):
+	if (data["type"])!= node_type:
+		return false
+	position = Vector2(data["pos"]["x"],data["pos"]["y"])
+	_level =data["lvl"] 
+	return true
 
 
 

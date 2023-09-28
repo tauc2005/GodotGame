@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://f1lfve4oq7yh"]
-
-[ext_resource type="Script" path="res://scenes/game_objects/level/level_item.gd" id="1_jrtwy"]
-
-[node name="level_item" type="Area2D"]
-script = ExtResource("1_jrtwy")

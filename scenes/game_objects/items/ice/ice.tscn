@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm22dq03l71y3"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/items/ice/ice.gd" id="1_jsonj"]
+[ext_resource type="Texture2D" uid="uid://cy4ra0croi0f8" path="res://assets/img/ice.png" id="2_5wpb3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye1ag"]
+size = Vector2(67, 63)
+
+[node name="IceItem" type="RigidBody2D"]
+script = ExtResource("1_jsonj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_ye1ag")
+
+[node name="img" type="Sprite2D" parent="."]
+texture = ExtResource("2_5wpb3")

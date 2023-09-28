@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwi0xlbl7ckrt"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/level/level_separate.gd" id="1_m0lyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx0ni"]
+size = Vector2(1019, 18)
+
+[node name="LevelSeparator" type="Area2D"]
+script = ExtResource("1_m0lyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+use_parent_material = true
+position = Vector2(426, 0)
+shape = SubResource("RectangleShape2D_cx0ni")
+one_way_collision = true
+one_way_collision_margin = 8.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

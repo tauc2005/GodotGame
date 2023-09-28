@@ -21,7 +21,10 @@ func _on_bg_focus_entered():
 	emit_signal("on_level_complited",false)
 	pass # Replace with function body.	
 
-# Завершение игры
+# Покупка ходов за монеты
 func _on_btn_pressed():
-	emit_signal("on_window_closed")
-	emit_signal("on_level_complited",false)
+	if Player.has_money_for_moves:
+		if Player.buy_moves_by_money():
+			emit_signal("on_return_to_game")
+			emit_signal("on_window_closed")
+	pass # Replace with function body.

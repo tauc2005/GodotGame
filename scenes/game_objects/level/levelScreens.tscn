@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkd3p51xclctt"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/level/levelScreens.gd" id="1_t14kv"]
+[ext_resource type="PackedScene" uid="uid://cwi0xlbl7ckrt" path="res://scenes/game_objects/level/level_separate.tscn" id="2_ltilo"]
+
+[node name="Screens" type="Node2D"]
+script = ExtResource("1_t14kv")
+
+[node name="Camera" type="Camera2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+offset = Vector2(450, 800)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+metadata/_edit_lock_ = true
+
+[node name="LevelSeparator" parent="." instance=ExtResource("2_ltilo")]
+metadata/_edit_lock_ = true

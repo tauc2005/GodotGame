@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://md3um0rdnq04"]
+[gd_scene load_steps=9 format=3 uid="uid://md3um0rdnq04"]
 
 [ext_resource type="Script" path="res://scenes/scene_manager/scene_manager.gd" id="1_yvtrc"]
 [ext_resource type="PackedScene" uid="uid://c77veqptp0wig" path="res://scenes/gui/main_menu/main_menu.tscn" id="2_n4wtw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpaseo8uoa2yt" path="res://scenes/gui/modal/game_before_start/game_before.tscn" id="4_p54id"]
 [ext_resource type="PackedScene" uid="uid://dti7p6xlxm01p" path="res://scenes/gui/modal/game_win/game_win.tscn" id="7_44krl"]
 [ext_resource type="PackedScene" uid="uid://deqwuxra0g5fu" path="res://scenes/gui/modal/game_loose/level_loose.tscn" id="7_pxt6w"]
+[ext_resource type="PackedScene" uid="uid://ddfc60chkyq0h" path="res://scenes/gui/modal/buy_moves/buy_moves.tscn" id="7_qsxoy"]
 
 [node name="SceneManager" type="CanvasLayer"]
 script = ExtResource("1_yvtrc")
@@ -38,7 +39,7 @@ grow_vertical = 2
 [node name="GameWin" parent="GUI/Modals" instance=ExtResource("7_44krl")]
 visible = false
 
-[node name="BuyMoves" parent="GUI/Modals" instance=ExtResource("7_pxt6w")]
+[node name="BuyMoves" parent="GUI/Modals" instance=ExtResource("7_qsxoy")]
 visible = false
 
 [node name="LevelLoose" parent="GUI/Modals" instance=ExtResource("7_pxt6w")]

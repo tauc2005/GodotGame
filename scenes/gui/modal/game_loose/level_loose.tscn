@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://deqwuxra0g5fu"]
+[gd_scene load_steps=6 format=3 uid="uid://deqwuxra0g5fu"]
 
 [ext_resource type="Texture2D" uid="uid://cdtdsjy14tjnj" path="res://assets/img/heart.png" id="1_tx024"]
 [ext_resource type="Script" path="res://scenes/gui/modal/game_loose/level_loose.gd" id="1_w6cll"]
 [ext_resource type="FontFile" uid="uid://dxxuxrpd08vvi" path="res://assets/fonts/RubikMonoOne.ttf" id="2_glvue"]
-[ext_resource type="Texture2D" uid="uid://cc0tyimbe7sqm" path="res://assets/img/money.png" id="3_pm33t"]
 [ext_resource type="PackedScene" uid="uid://cpkmnev1qs7vf" path="res://scenes/gui/elemets/modal_wnd/modal_wnd.tscn" id="4_tdgnr"]
 [ext_resource type="Texture2D" uid="uid://b8od0k4pg72p3" path="res://assets/img/btn_green.png" id="5_6o751"]
-[ext_resource type="Texture2D" uid="uid://ckqq1w864tfrw" path="res://assets/img/cirle.png" id="6_yqb7j"]
 
 [node name="LevelLoose" type="Control"]
 layout_mode = 3
@@ -108,8 +106,8 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_glvue")
 theme_override_font_sizes/font_size = 30
-text = "У тебя закончились ходы. 
-Хочешь купить?"
+text = "Увы, этот уровнень 
+не пройден"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -131,68 +129,16 @@ layout_mode = 2
 texture_normal = ExtResource("5_6o751")
 stretch_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton"]
+[node name="Text" type="Label" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="TextureRect" type="TextureRect" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer"]
-custom_minimum_size = Vector2(170, 170)
-layout_mode = 2
-texture = ExtResource("6_yqb7j")
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer/TextureRect/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_glvue")
-theme_override_font_sizes/font_size = 26
-text = "+5
-(ходы)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer"]
-layout_mode = 2
 theme_override_fonts/font = ExtResource("2_glvue")
 theme_override_font_sizes/font_size = 30
-text = "Играть
-дальше:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Money" type="TextureRect" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-texture = ExtResource("3_pm33t")
-stretch_mode = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="SizeBox/VBoxContainer/ModalWindow/MarginContainer2/VBoxContainer/MarginContainer2/TextureButton/HBoxContainer/HBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_glvue")
-theme_override_font_sizes/font_size = 36
-text = "100"
+text = "Понятно"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,7 +1,4 @@
 extends Node
-
-
-
 # Called when the node enters the scene tree for the first time.
 @onready var GUI = get_node("SceneManager")
 @onready var Game = get_node("Game")
@@ -13,15 +10,14 @@ func _ready():
 	GUI.on_game_end.connect(_on_game_end)
 	
 	# GUI  и данные игрока
-	Player.on_player_data_changed.connect(GUI.player_changed)
-	
-	Loader.load_userdata()
-	if Loader.load_level_data(Player.Level):
-		Rules.reset_data()
-	
-	
-	Game.level_data_changed.connect(_on_level_data_changed)
+	Player.on_player_data_changed.connect(GUI.player_changed)	
 	Rules.on_level_complited.connect(_on_level_complite)
+	Game.level_data_changed.connect(_on_level_data_changed)
+	Game.level_load_error.connect(_on_level_error_load)
+	
+	# Загрузка данных
+	Loader.load_userdata()
+	Game.InitData()
 	pass
 	
 
@@ -52,3 +48,6 @@ func _on_level_complite(_result):
 	if Globals.DEBAG: print ("(main) -> _on_level_complite %s "% _result) 
 	print ("----BONUS---")
 	Player.Lives +=1 
+
+func _on_level_error_load():
+	if Globals.DEBAG: printerr ("(main) -> _on_level_error_load") 

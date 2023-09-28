@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bndt2bulf7bby"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/level/levelbase.gd" id="1_6rx12"]
+[ext_resource type="PackedScene" uid="uid://bkd3p51xclctt" path="res://scenes/game_objects/level/levelScreens.tscn" id="2_kacr7"]
+[ext_resource type="TileSet" uid="uid://c6jcgbkr5eau5" path="res://assets/level_base.tres" id="3_gc5me"]
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_6rx12")
+
+[node name="Items" type="Node2D" parent="."]
+editor_description = "для динамических элементов уровня"
+
+[node name="Rules" type="Node2D" parent="."]
+editor_description = "Правила победы уровня
+"
+
+[node name="Screens" parent="." instance=ExtResource("2_kacr7")]
+metadata/_edit_lock_ = true
+
+[node name="World" type="Area2D" parent="."]
+
+[node name="Map" type="TileMap" parent="."]
+tile_set = ExtResource("3_gc5me")
+format = 2
+metadata/_edit_lock_ = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
