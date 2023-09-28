@@ -12,10 +12,10 @@
 script = ExtResource("1_fb7j5")
 
 [node name="generator" parent="World" index="0" instance=ExtResource("2_dpau3")]
-position = Vector2(126, 3731)
+position = Vector2(122, 3727)
 
 [node name="EggItem" parent="World" index="1" instance=ExtResource("4_sumd3")]
-position = Vector2(238, 435)
+position = Vector2(246, 740)
 
 [node name="buster" parent="World" index="2" instance=ExtResource("5_ny8yk")]
 position = Vector2(337, 3077)

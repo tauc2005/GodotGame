@@ -1,7 +1,7 @@
 extends Level
 class_name Game
 
-signal level_complite(success,score)
+signal level_complite(success)
 signal level_loaded()
 signal level_data_changed()
 signal level_load_error()
@@ -32,6 +32,7 @@ func InitData():
 		emit_signal("level_load_error") 	
 	Loader.LevelData = lvl_data["rules"]
 	Rules.reset_data()
+	
 	make_step.connect(_on_make_step)
 	score_changed.connect(_on_score_changed)
 	# подгружаем карту
@@ -66,3 +67,11 @@ func _on_score_changed(score_delta,block):
 	Rules.update(block,score_delta)
 	emit_signal("level_data_changed")	# Обновляем UI 
 	# todo
+#------------------------------------------------
+# Завершение уровня
+#------------------------------------------------
+#------------------------------------------------
+func _on_level_complite(success:bool = false):
+	if Globals.DEBAG: print ("(game)   -> _ready: start")
+	if Globals.DEBAG: print ("	EMIT signal '_on_level_complite'")
+	emit_signal("level_complite",success)

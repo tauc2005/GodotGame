@@ -27,9 +27,12 @@ func append_items(items:Array):
 			"stone":item.item_destroyed.connect(_on_stone_destroyed)
 			"ice": 	item.item_destroyed.connect(_on_stone_destroyed)
 		add_item_node(item)
+
+# Убираем с поля игровые элементы		
 func clear_items():
 	for item in _items.get_children():
-		item.free()		
+		item.queue_free()		
+			
 #------------------------------------------------
 #------------------------------------------------
 # Игровая логика при клике
@@ -220,15 +223,10 @@ func _on_egg_catched(block):
 	emit_signal("score_changed",1,block)
 
 #------------------------------------------------
-# Камень уничтожен
+# Камень/Лед уничтожен
 func _on_stone_destroyed(block):
 	if Globals.DEBAG: print("(level_base) -> _on_stone_destroyed")
 	if Globals.DEBAG: print ("	EMIT signal '_on_stone_destroyed'")
 	emit_signal("score_changed",1,block)
 
 #------------------------------------------------
-# Лед уничтожен
-func _on_ice_destroyed(block):
-	if Globals.DEBAG: print("(level_base) -> _on_ice_destroyed")
-	if Globals.DEBAG: print ("	EMIT signal '_on_ice_destroyed'")
-	emit_signal("score_changed",1,block)

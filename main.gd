@@ -10,7 +10,7 @@ func _ready():
 	GUI.on_game_end.connect(_on_game_end)
 	
 	# GUI  и данные игрока
-	Player.on_player_data_changed.connect(GUI.player_changed)	
+	Player.on_player_data_changed.connect(_on_player_datachanged)	
 	Rules.on_level_complited.connect(_on_level_complite)
 	Game.level_data_changed.connect(_on_level_data_changed)
 	Game.level_load_error.connect(_on_level_error_load)
@@ -34,6 +34,7 @@ func _on_game_end():
 	if Globals.DEBAG: print ("(main)   -> _on_game_end ")
 	Game.exitGame()
 
+
 # Таймер жизни сделал расчет
 func _on_lifeTimer_finnished():
 	Player.Lives +=1 
@@ -42,12 +43,21 @@ func _on_lifeTimer_finnished():
 func _on_level_data_changed():
 	GUI.level_data_changed()
 	pass
+	
 # Игра завершилась. Обработка только успеха
 func _on_level_complite(_result):
 	if not _result: return 
 	if Globals.DEBAG: print ("(main) -> _on_level_complite %s "% _result) 
-	print ("----BONUS---")
+	print ("----BONUS---",)
 	Player.Lives +=1 
+	Player.Level +=1	
+	#Game.InitData()	
+	_on_game_end()
 
 func _on_level_error_load():
 	if Globals.DEBAG: printerr ("(main) -> _on_level_error_load") 
+
+func _on_player_datachanged(type:String,value:int):
+	GUI.player_changed(type,value)
+	if (type== "Level"):
+		Game.InitData

@@ -12,18 +12,21 @@ func init_level(data):
 				"generator": 
 					item = Globals.GeneratorItem.instantiate()
 					item.generator_clicked.connect(append_items)
+					item.deserialize(info)
+					add_world_item(item)		
+					continue
 				"egg":	
 					item = Globals.EggItem.instantiate()
 					item.egg_catched.connect(_on_egg_catched)
 				"ice": 
 					item = Globals.IceItem.instantiate()
-					item.item_destroyed.connect(_on_ice_destroyed)
+					item.item_destroyed.connect(_on_stone_destroyed)
 				"stone": 
 					item = Globals.StoneItem.instantiate()
 					item.item_destroyed.connect(_on_stone_destroyed)
 			if (item !=null):		
 				item.deserialize(info)
-				_world.add_child(item)		
+				add_item_node(item)		
 
 #------------------------------------------------	
 #------------------------------------------------
