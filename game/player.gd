@@ -177,3 +177,10 @@ func buy_moves_by_ads():
 		return true
 	return false	
 #------------------------------------------------
+func add_bonuses():
+	var bonuses = Loader.get_level_data("bonus")
+	for item in bonuses:
+		var value = bonuses[item]
+		match item:
+			"money": Money += value
+	pass

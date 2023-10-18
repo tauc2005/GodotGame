@@ -48,9 +48,11 @@ func _on_level_data_changed():
 func _on_level_complite(_result):
 	if not _result: return 
 	if Globals.DEBAG: print ("(main) -> _on_level_complite %s "% _result) 
-	print ("----BONUS---",)
+	print ("----BONUS---")
+	Player.add_bonuses()
 	Player.Lives +=1 
-	Player.Level +=1	
+	Player.Level +=1
+	
 	#Game.InitData()	
 	_on_game_end()
 

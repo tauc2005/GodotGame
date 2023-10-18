@@ -3,6 +3,7 @@ class_name BallItem
 
 const node_type = "ball"
 signal block_clicked(block)
+signal block_die(block)
 
 @export var color: int = 1 # setget set_color, get_color
 @export var level:int =1
@@ -26,6 +27,7 @@ func destroy():
 	_level_down()
 	if level==0:
 		queue_free()
+		emit_signal("block_die",self) 
 #------------------------------------------------
 # Получение типа
 func get_type()-> String:
