@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://qyvj4747a0ma"]
+[gd_scene load_steps=5 format=3 uid="uid://qyvj4747a0ma"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/generator/generator.gd" id="1_oi1va"]
 [ext_resource type="Texture2D" uid="uid://dc3wv7lqueqs8" path="res://assets/img/circle_dark.png" id="2_befi8"]
+[ext_resource type="Script" path="res://scenes/game_objects/generator/generator_rules.gd" id="2_wwi32"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cd1ph"]
 radius = 57.0088
 
 [node name="generator" type="StaticBody2D"]
 script = ExtResource("1_oi1va")
+
+[node name="Rules" type="Node2D" parent="."]
+script = ExtResource("2_wwi32")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cd1ph")
