@@ -21,7 +21,7 @@ var _current_balls = 0
 func serialize():
 	pass
 
-func deserialize (data:Dictionary):
+func deserialize (_data:Dictionary):
 
 	pass
 
